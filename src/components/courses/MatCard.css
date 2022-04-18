@@ -1,0 +1,47 @@
+.Container {
+    margin-top: 6rem;
+    padding-left: 4rem;
+    padding-right: 4rem;
+}
+
+h4 {
+    margin-bottom: 1.5rem;
+    text-align: left;
+}
+
+.Card {
+    display: flex;
+    margin-bottom: 1rem;
+    padding: 1rem;
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+}
+
+.Avatar {
+    display: flex;
+    align-items: center;
+}
+
+.Avatar img {
+    width: 60%;
+    border-radius: 50%;
+}
+
+.Details {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: center;
+}
+
+.Details p:first-of-type {
+    font-size: 1.2rem;
+    font-weight: 500;
+}
+
+.Details .Email {
+    color: #a1a1a1;
+}
+
+.Details p {
+    margin: 0;
+}

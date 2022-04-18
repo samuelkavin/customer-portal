@@ -12,6 +12,14 @@ class DashboardPage extends React.Component {
     },
   };
 
+  componentDidMount() {
+    const { actions } = this.props;
+    console.log('this.props', this.props);
+    actions.loadCourses().catch((error) => {
+      console.log('loading failed');
+    });
+  }
+
   handleChange = (event) => {
     const course = { ...this.state.course, title: event.target.value };
     this.setState({ course });
@@ -20,25 +28,33 @@ class DashboardPage extends React.Component {
   handleSubmit = (event) => {
     event.preventDefault();
     // alert(this.state.course.title);
-    this.props.dispatch(courseActions.createCourse(this.state.course));
+    this.props.actions.createCourse(this.state.course);
     // this.props.actions.createCourse(this.state.course);
   };
 
   render() {
     return (
-      <form onSubmit={this.handleSubmit}>
-        <h2>course</h2>
-        <h3>Add course</h3>
-        <input type="text" onChange={this.handleChange} value={this.state.course.title} />
+      <>
+        {this.props.courses.map((course) => (
+          <div key={course.first_name}>{course.first_name}</div>
+        ))}
+      </>
+      // <form onSubmit={this.handleSubmit}>
+      //   <h2>course</h2>
+      //   <h3>Add course</h3>
+      //   <input type="text" onChange={this.handleChange} value={this.state.course.title} />
 
-        <input type="submit" value="Save" />
-      </form>
+      //   <input type="submit" value="Save" />
+      //   {this.props.courses.map((course) => (
+      //     <div key={course.title}>{course.title}</div>
+      //   ))}
+      // </form>
     );
   }
 }
 
 DashboardPage.propTypes = {
-  dispatch: PropTypes.func.isRequired,
+  actions: PropTypes.object.isRequired,
 };
 
 function mapStateToProps(state) {
@@ -47,5 +63,11 @@ function mapStateToProps(state) {
   };
 }
 
-export default connect(mapStateToProps)(DashboardPage);
+function mapDispatchToProps(dispatch) {
+  return {
+    actions: bindActionCreators(courseActions, dispatch),
+  };
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(DashboardPage);
 // export default connect(mapStateToProps, mapDispatchToProps) (DashboardPage);
