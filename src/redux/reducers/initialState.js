@@ -3,4 +3,8 @@ export default {
     courses: [],
     authors: [],
     footers: [],
+    auth: {
+        success: false,
+        error: null
+    }
 };
