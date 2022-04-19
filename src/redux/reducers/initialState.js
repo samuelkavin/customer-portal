@@ -3,6 +3,7 @@ export default {
     courses: [],
     authors: [],
     footers: [],
+    apiCallsInProgress: 0,
     auth: {
         success: false,
         error: null

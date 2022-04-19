@@ -3,7 +3,6 @@ import { NavLink } from 'react-router-dom';
 import './Footer.css';
 
 const FooterLink = ({ footers }) => {
-    console.log('footers', footers);
     return (
         <>
             <div className="col-md-4 mb-md-0 mb-3">

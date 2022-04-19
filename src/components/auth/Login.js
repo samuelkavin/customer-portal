@@ -6,12 +6,13 @@ import { Col, Row, Form } from 'react-bootstrap';
 // import Button from 'react-bootstrap/Button';
 import { submitLogin } from '../../redux/reducers/loginSlice';
 import Button from '@material-ui/core/Button';
+import { useNavigate } from 'react-router-dom';
 
 const Login = () => {
 	const dispatch = useDispatch();
+	const navigate = useNavigate();
 	const login = useSelector(({ auth }) => auth);
 
-    console.log('loginlogin', login);
 
 	const [isFormValid, setIsFormValid] = useState(false);
 
@@ -37,6 +38,7 @@ const Login = () => {
 	function handleSubmit(model) {
 		console.log('model', model);
 		dispatch(submitLogin(model));
+		// navigate('/dashboard');
 	}
 
 	return (

@@ -7,12 +7,9 @@ export const submitLogin = ({ email, password }) => async dispatch => {
 		.signInWithEmailAndPassword(email, password)
 		.then(user => {
 			// dispatch(setUserData(user));
-			console.log('user', user)
-
 			return dispatch(loginSuccess());
 		})
 		.catch(error => {
-			console.log('error', error)
 			return dispatch(loginError(error));
 		});
 };
