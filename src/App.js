@@ -1,13 +1,13 @@
 import React from 'react';
-import Header from './components/common/Header';
-import { Route, Routes, Navigate, Outlet, Switch } from 'react-router-dom';
-import 'bootstrap/dist/css/bootstrap.min.css';
-import Login from './components/auth/Login';
-import Dashboard from './components/dashboard/Dashboard';
+import { Route, Routes } from 'react-router-dom';
+
 import CoursesPage from './components/courses/CoursesPage';
-import './App.css';
-import PageNotFound from './pages/PageNotFound';
 import ProtectedRoutes from './components/auth/Auth';
+import Header from './components/common/Header';
+import PageNotFound from './pages/PageNotFound';
+import Login from './components/auth/Login';
+import 'bootstrap/dist/css/bootstrap.min.css';
+import './App.css';
 
 function App() {
     return (
@@ -23,10 +23,6 @@ function App() {
             </Routes>
         </div>
     );
-}
-
-function PrivateOutlet() {
-    return true ? <Outlet /> : <Navigate to="/login" />;
 }
 
 export default App;

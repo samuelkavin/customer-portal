@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
-import './MatCard.css';
+import './CourseList.css';
 
 const CourseList = ({ courses }) => (
     <div className="Container">

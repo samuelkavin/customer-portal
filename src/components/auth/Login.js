@@ -38,7 +38,6 @@ const Login = () => {
 	function handleSubmit(model) {
 		console.log('model', model);
 		dispatch(submitLogin(model));
-		// navigate('/dashboard');
 	}
 
 	return (
