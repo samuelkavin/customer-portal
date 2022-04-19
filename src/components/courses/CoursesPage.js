@@ -1,12 +1,11 @@
 import React from 'react';
 import { connect } from 'react-redux';
+import { bindActionCreators } from 'redux';
+import PropTypes from 'prop-types';
 import * as courseActions from '../../redux/actions/courseActions';
 import * as authorActions from '../../redux/actions/authorActions';
 import * as footerActions from '../../redux/actions/footerActions';
-import PropTypes from 'prop-types';
-import { bindActionCreators } from 'redux';
 import CourseList from './CourseList';
-import Height from './CardItem';
 import Footer from './../common/footer/Footer';
 import Spinner from '../common/spinner/Spinner';
 
