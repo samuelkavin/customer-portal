@@ -8,7 +8,7 @@ import Card from '@mui/material/Card';
 import CardContent from '@mui/material/CardContent';
 import Typography from '@mui/material/Typography';
 import TextFieldFormsy from '../common/TextFieldFormsy';
-import { submitLogin } from '../../redux/reducers/loginSlice';
+import { submitLogin } from '../../redux/reducers/authSlice';
 
 const Login = () => {
 	const dispatch = useDispatch();
@@ -37,7 +37,6 @@ const Login = () => {
 	}
 
 	function handleSubmit(model) {
-		console.log('model', model);
 		dispatch(submitLogin(model));
 	}
 
@@ -50,7 +49,6 @@ const Login = () => {
 				<Formsy onValidSubmit={handleSubmit} onValid={enableButton} onInvalid={disableButton} ref={formRef}>
 					<Box component="div" sx={{ mb: 2 }}>
 						<TextFieldFormsy
-							className="TextField Email"
 							type="text"
 							name="email"
 							label="Email"
@@ -67,7 +65,6 @@ const Login = () => {
 					</Box>
 					<Box component="div" sx={{ mb: 2 }}>
 						<TextFieldFormsy
-							className="TextField Password"
 							type="password"
 							name="password"
 							label="Password"
@@ -87,7 +84,6 @@ const Login = () => {
 						variant="contained"
 						style={{ width: '100%' }}
 						color="primary"
-						className="w-full mx-auto mt-16 normal-case"
 						aria-label="LOG IN"
 						disabled={!isFormValid}
 						value="legacy"
@@ -97,59 +93,6 @@ const Login = () => {
 				</Formsy>
 			</CardContent>
 		</Card>
-		// <Formsy
-		// 	style={{ marginTop: '5rem' }}
-		// 	onValidSubmit={handleSubmit}
-		// 	onValid={enableButton}
-		// 	onInvalid={disableButton}
-		// 	ref={formRef}
-		// >
-		// 	<div className="FormInputs">
-		// 		<TextFieldFormsy
-		// 			className="TextField Email"
-		// 			type="text"
-		// 			name="email"
-		// 			label="Email"
-		// 			value=""
-		// 			validations={{
-		// 				isEmail: true,
-		// 			}}
-		// 			validationErrors={{
-		// 				isEmail: 'Please enter a email address',
-		// 			}}
-		// 			variant="outlined"
-		// 			required
-		// 		/>
-
-		// 		<TextFieldFormsy
-		// 			className="TextField Password"
-		// 			type="password"
-		// 			name="password"
-		// 			label="Password"
-		// 			value=""
-		// 			validations={{
-		// 				minLength: 4,
-		// 			}}
-		// 			validationErrors={{
-		// 				minLength: 'Min character length is 4',
-		// 			}}
-		// 			variant="outlined"
-		// 			required
-		// 		/>
-
-		// 		<Button
-		// 			type="submit"
-		// 			variant="contained"
-		// 			color="primary"
-		// 			className="w-full mx-auto mt-16 normal-case"
-		// 			aria-label="LOG IN"
-		// 			disabled={!isFormValid}
-		// 			value="legacy"
-		// 		>
-		// 			Login
-		// 		</Button>
-		// 	</div>
-		// </Formsy>
 	);
 };
 

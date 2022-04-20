@@ -17,7 +17,7 @@ function App() {
                     <Route path="" element={<CustomerPage />} />
                     {/* <Route path="" element={<CustomerPage />} /> */}
                 </Route>
-                <Route path="/login" element={<Login />} />
+                <Route exact path="/" element={<Login />} />
                 <Route path="*" element={<PageNotFound />} />
             </Routes>
         </div>

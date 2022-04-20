@@ -1,5 +1,4 @@
 import React from 'react';
-import Container from 'react-bootstrap/Container';
 import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
 import { makeStyles } from '@mui/styles';
@@ -7,9 +6,13 @@ import AppBar from '@mui/material/AppBar';
 import Box from '@mui/material/Box';
 import Toolbar from '@mui/material/Toolbar';
 import Typography from '@mui/material/Typography';
+import Container from '@mui/material/Container';
 import Button from '@mui/material/Button';
 import withRouter from '../../helpers/withRoute';
 import { isAuthenticated } from '../../redux/selectors/authSelector';
+// import { logoutSuccess } from '../../redux/reducers/authSlice';
+import { logoutUser } from '../../redux/reducers/authSlice';
+import { useDispatch } from 'react-redux';
 
 const useStyles = makeStyles({
 	link: {
@@ -20,6 +23,7 @@ const useStyles = makeStyles({
 
 const Header = props => {
 	const classes = useStyles();
+	const dispatch = useDispatch();
 	return (
 		<AppBar position="static" color="transparent">
 			<Container>
@@ -43,17 +47,19 @@ const Header = props => {
 						</Box>
 					)}
 					<Box sx={{ pr: 4 }}>
-						<Button color="inherit">
-							{!props.isAuthenticated ? (
-								<Link className={classes.link} to="/login">
+						{!props.isAuthenticated ? (
+							<Button color="inherit">
+								<Link className={classes.link} to="/">
 									Login
 								</Link>
-							) : (
-								<Link className={classes.link} to="/login">
+							</Button>
+						) : (
+							<Button color="inherit" onClick={() => dispatch(logoutUser())}>
+								<Link className={classes.link} to="/">
 									Logout
 								</Link>
-							)}
-						</Button>
+							</Button>
+						)}
 					</Box>
 				</Toolbar>
 			</Container>

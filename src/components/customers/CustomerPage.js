@@ -30,13 +30,9 @@ class CustomerPage extends React.Component {
 				alert('Loading footers failed' + error);
 			});
 		}
-
-		// console.log('footers', this.props);
 	}
 
 	render() {
-		console.log('this.courses', this.props.courses);
-		console.log('this.courses', this.props.footers);
 		return (
 			<>
 				{this.props.loading ? (
