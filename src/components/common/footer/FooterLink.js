@@ -5,7 +5,7 @@ import './Footer.css';
 const FooterLink = ({ footers }) => {
     return (
         <>
-            <div className="col-md-4 mb-md-0 mb-3">
+            <div>
                 <h6>{footers.name}</h6>
                 <ul className="list-unstyled">
                     {footers.values.map((nav) => {

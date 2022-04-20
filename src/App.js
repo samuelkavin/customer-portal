@@ -6,7 +6,6 @@ import ProtectedRoutes from './components/auth/Auth';
 import Header from './components/common/Header';
 import PageNotFound from './pages/PageNotFound';
 import Login from './components/auth/Login';
-import 'bootstrap/dist/css/bootstrap.min.css';
 import './App.css';
 
 function App() {

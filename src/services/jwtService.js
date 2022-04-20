@@ -7,8 +7,8 @@ class JwtService {
 		return new Promise((resolve, reject) => {
 			axios
 				.post(baseUrl, {
-						email,
-						password,
+					email,
+					password,
 				})
 				.then(response => {
 					console.log('response', response);
@@ -20,6 +20,10 @@ class JwtService {
 					}
 				});
 		});
+	};
+
+	logout = () => {
+		this.setSession(null);
 	};
 
 	setSession = access_token => {

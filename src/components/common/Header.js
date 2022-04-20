@@ -1,44 +1,63 @@
 import React from 'react';
-import { NavLink } from 'react-router-dom';
-import Navbar from 'react-bootstrap/Navbar';
 import Container from 'react-bootstrap/Container';
-import Nav from 'react-bootstrap/Nav';
 import { connect } from 'react-redux';
-import { isAuthenticated } from '../../redux/selectors/authSelector';
+import { Link } from 'react-router-dom';
+import { makeStyles } from '@mui/styles';
+import AppBar from '@mui/material/AppBar';
+import Box from '@mui/material/Box';
+import Toolbar from '@mui/material/Toolbar';
+import Typography from '@mui/material/Typography';
+import Button from '@mui/material/Button';
 import withRouter from '../../helpers/withRoute';
+import { isAuthenticated } from '../../redux/selectors/authSelector';
+
+const useStyles = makeStyles({
+	link: {
+		textDecoration: 'none',
+		color: '#000',
+	},
+});
 
 const Header = props => {
-	console.log('props', props);
+	const classes = useStyles();
 	return (
-		<Navbar className="shadow" fixed="top" collapseOnSelect expand="lg" bg="light">
+		<AppBar position="static" color="transparent">
 			<Container>
-				<Navbar.Brand href="#home" style={{ fontWeight: '900' }}>
-					Zurich
-				</Navbar.Brand>
-				<Navbar.Toggle aria-controls="responsive-navbar-nav" />
-				<Navbar.Collapse>
+				<Toolbar disableGutters style={{ display: 'flex', justifyContent: 'space-between' }}>
+					<Typography
+						variant="h6"
+						noWrap
+						component="div"
+						style={{ fontWeight: '900' }}
+						sx={{ mr: 2, pl: 4, pr: 2 }}
+					>
+						Zurich
+					</Typography>
 					{props.isAuthenticated && (
-						<Nav className="me-auto">
-							<Nav.Link as={NavLink} to="/dashboard">
-								Customers
-							</Nav.Link>
-							<Nav.Link href="#pricing">Products</Nav.Link>
-						</Nav>
+						<Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' } }}>
+							<Button color="inherit">
+								<Link className={classes.link} to="/dashboard">
+									Customer
+								</Link>
+							</Button>
+						</Box>
 					)}
-					<Nav className="ms-auto">
-						{!props.isAuthenticated ? (
-							<Nav.Link as={NavLink} to="/login">
-								Login
-							</Nav.Link>
-						) : (
-							<Nav.Link as={NavLink} to="/login">
-								Logout
-							</Nav.Link>
-						)}
-					</Nav>
-				</Navbar.Collapse>
+					<Box sx={{ pr: 4 }}>
+						<Button color="inherit">
+							{!props.isAuthenticated ? (
+								<Link className={classes.link} to="/login">
+									Login
+								</Link>
+							) : (
+								<Link className={classes.link} to="/login">
+									Logout
+								</Link>
+							)}
+						</Button>
+					</Box>
+				</Toolbar>
 			</Container>
-		</Navbar>
+		</AppBar>
 	);
 };
 

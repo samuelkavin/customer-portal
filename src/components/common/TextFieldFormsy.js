@@ -1,4 +1,5 @@
 import _ from 'lodash';
+import { useFormControl } from '@mui/material/FormControl';
 import TextField from '@material-ui/core/TextField';
 import { withFormsy } from 'formsy-react';
 import React from 'react';
@@ -15,7 +16,6 @@ function TextFieldFormsy(props) {
 		'fullWidth',
 		'id',
 		'InputLabelProps',
-		'inputProps',
 		'InputProps',
 		'inputRef',
 		'label',
@@ -47,6 +47,8 @@ function TextFieldFormsy(props) {
 
 	return (
 		<TextField
+			style={{ width: '100%' }}
+			variant="standard"
 			{...importedProps}
 			onChange={changeValue}
 			value={value}
