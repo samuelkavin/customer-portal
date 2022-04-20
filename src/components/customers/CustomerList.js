@@ -1,9 +1,8 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { Link } from 'react-router-dom';
-import './CourseList.css';
+import './CustomerList.css';
 
-const CourseList = ({ courses }) => (
+const CustomerList = ({ courses }) => (
     <div className="Container">
         <h4>Customers</h4>
         {courses.map((course) => {
@@ -24,8 +23,8 @@ const CourseList = ({ courses }) => (
     </div>
 );
 
-CourseList.propTypes = {
+CustomerList.propTypes = {
     courses: PropTypes.array.isRequired,
 };
 
-export default CourseList;
+export default CustomerList;

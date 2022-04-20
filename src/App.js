@@ -1,7 +1,7 @@
 import React from 'react';
 import { Route, Routes } from 'react-router-dom';
 
-import CoursesPage from './components/courses/CoursesPage';
+import CustomerPage from './components/customers/CustomerPage';
 import ProtectedRoutes from './components/auth/Auth';
 import Header from './components/common/Header';
 import PageNotFound from './pages/PageNotFound';
@@ -15,8 +15,8 @@ function App() {
             <Header />
             <Routes>
                 <Route path="/dashboard" element={<ProtectedRoutes />}>
-                    <Route path="" element={<CoursesPage />} />
-                    {/* <Route path="" element={<CoursesPage />} /> */}
+                    <Route path="" element={<CustomerPage />} />
+                    {/* <Route path="" element={<CustomerPage />} /> */}
                 </Route>
                 <Route path="/login" element={<Login />} />
                 <Route path="*" element={<PageNotFound />} />

@@ -5,11 +5,11 @@ import PropTypes from 'prop-types';
 import * as courseActions from '../../redux/actions/courseActions';
 import * as authorActions from '../../redux/actions/authorActions';
 import * as footerActions from '../../redux/actions/footerActions';
-import CourseList from './CourseList';
-import Footer from './../common/footer/Footer';
+import CustomerList from './CustomerList';
+import Footer from '../common/footer/Footer';
 import Spinner from '../common/spinner/Spinner';
 
-class CoursesPage extends React.Component {
+class CustomerPage extends React.Component {
 	componentDidMount() {
 		const { courses, authors, footers, actions } = this.props;
 
@@ -43,7 +43,7 @@ class CoursesPage extends React.Component {
 					<Spinner />
 				) : (
 					<>
-						<CourseList courses={this.props.courses} />
+						<CustomerList courses={this.props.courses} />
 						<Footer footers={this.props.footers} />
 					</>
 				)}
@@ -52,7 +52,7 @@ class CoursesPage extends React.Component {
 	}
 }
 
-CoursesPage.propTypes = {
+CustomerPage.propTypes = {
 	authors: PropTypes.array.isRequired,
 	courses: PropTypes.array.isRequired,
 	footers: PropTypes.array.isRequired,
@@ -79,4 +79,4 @@ function mapDispatchToProps(dispatch) {
 	};
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(CoursesPage);
+export default connect(mapStateToProps, mapDispatchToProps)(CustomerPage);
