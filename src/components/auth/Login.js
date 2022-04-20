@@ -1,5 +1,5 @@
 import React, { useEffect, useRef, useState } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
+import { useDispatch, useSelector, connect } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 import Formsy from 'formsy-react';
 import Button from '@material-ui/core/Button';
@@ -9,8 +9,10 @@ import CardContent from '@mui/material/CardContent';
 import Typography from '@mui/material/Typography';
 import TextFieldFormsy from '../common/TextFieldFormsy';
 import { submitLogin } from '../../redux/reducers/authSlice';
+import withRouter from '../../helpers/withRoute';
+import { isAuthenticated } from '../../redux/selectors/authSelector';
 
-const Login = () => {
+const Login = props => {
 	const dispatch = useDispatch();
 	const navigate = useNavigate();
 	const login = useSelector(({ auth }) => auth);
@@ -37,6 +39,7 @@ const Login = () => {
 	}
 
 	function handleSubmit(model) {
+		console.log('props', props);
 		dispatch(submitLogin(model));
 	}
 
@@ -96,4 +99,10 @@ const Login = () => {
 	);
 };
 
-export default Login;
+const mapStateToProps = state => {
+	return {
+		isAuthenticated: isAuthenticated(state),
+	};
+};
+
+export default withRouter(connect(mapStateToProps)(Login));
