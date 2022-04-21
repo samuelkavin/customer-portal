@@ -1,6 +1,17 @@
-import { handleResponse, handleError } from '../../helpers/apiUtils';
+import axios from 'axios';
+
 const baseUrl = `http://localhost:3001/footers`;
 
 export function getFooters() {
-    return fetch(baseUrl).then(handleResponse).catch(handleError);
+    return new Promise((resolve, reject) => {
+        axios
+            .get(baseUrl)
+            .then(response => {
+                if (response.data) {
+                    resolve(response.data);
+                } else {
+                    reject(response.data.error);
+                }
+            });
+    });
 }
