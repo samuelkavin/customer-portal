@@ -31,15 +31,15 @@ const Header = props => {
 	}
 
 	return (
-		<AppBar position="fixed" color="transparent">
-			<Container style={{ background: '#fff' }}>
+		<AppBar position="static" color="transparent">
+			<Container>
 				<Toolbar disableGutters style={{ display: 'flex', justifyContent: 'space-between' }}>
 					<Typography
 						variant="h6"
 						noWrap
 						component="div"
 						style={{ fontWeight: '900' }}
-						sx={{ mr: 2, pl: 4, pr: 2 }}
+						sx={{ mr: 2 }}
 					>
 						Zurich
 					</Typography>
