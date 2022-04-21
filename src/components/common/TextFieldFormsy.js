@@ -1,5 +1,4 @@
 import _ from 'lodash';
-import { useFormControl } from '@mui/material/FormControl';
 import TextField from '@material-ui/core/TextField';
 import { withFormsy } from 'formsy-react';
 import React from 'react';

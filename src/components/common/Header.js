@@ -10,7 +10,7 @@ import Container from '@mui/material/Container';
 import Button from '@mui/material/Button';
 import withRouter from '../../helpers/withRoute';
 import { isAuthenticated } from '../../redux/selectors/authSelector';
-// import { logoutSuccess } from '../../redux/reducers/authSlice';
+import { toast } from 'react-toastify';
 import { logoutUser } from '../../redux/reducers/authSlice';
 import { useDispatch } from 'react-redux';
 
@@ -24,6 +24,12 @@ const useStyles = makeStyles({
 const Header = props => {
 	const classes = useStyles();
 	const dispatch = useDispatch();
+
+	function handleLogout() {
+		dispatch(logoutUser())
+		toast.success('Logout successfull');
+	}
+	
 	return (
 		<AppBar position="static" color="transparent">
 			<Container>
@@ -54,7 +60,7 @@ const Header = props => {
 								</Link>
 							</Button>
 						) : (
-							<Button color="inherit" onClick={() => dispatch(logoutUser())}>
+							<Button color="inherit" onClick={() => handleLogout()}>
 								<Link className={classes.link} to="/">
 									Logout
 								</Link>
