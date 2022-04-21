@@ -44,10 +44,10 @@ const Header = props => {
 						Zurich
 					</Typography>
 					{props.isAuthenticated && (
-						<Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' } }}>
+						<Box sx={{ flexGrow: 1, display: { md: 'flex' } }}>
 							<Button color="inherit">
 								<HeaderLink className={classes.link} to="/dashboard">
-									Customer
+									Customers
 								</HeaderLink>
 							</Button>
 							<Button color="inherit">
