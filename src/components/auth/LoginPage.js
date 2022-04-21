@@ -12,7 +12,7 @@ import Typography from '@mui/material/Typography';
 import TextFieldFormsy from '../common/TextFieldFormsy';
 import { submitLogin } from '../../redux/reducers/authSlice';
 
-const Login = props => {
+const LoginPage = props => {
 	const dispatch = useDispatch();
 	const navigate = useNavigate();
 	const login = useSelector(({ auth }) => auth);
@@ -100,11 +100,11 @@ const Login = props => {
 	);
 };
 
-Login.propTypes = {
+LoginPage.propTypes = {
 	formRef: PropTypes.object,
 	navigate: PropTypes.func,
 	isFormValid: PropTypes.bool,
 	saving: PropTypes.bool,
 };
 
-export default Login;
+export default LoginPage;

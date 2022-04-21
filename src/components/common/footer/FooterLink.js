@@ -11,7 +11,7 @@ const FooterLink = ({ footers }) => {
 					{footers.values.map(nav => {
 						return (
 							<li key={nav.name}>
-								<Link to="/dashboard">{nav.name}</Link>
+								<Link to={nav.path}>{nav.name}</Link>
 							</li>
 						);
 					})}
