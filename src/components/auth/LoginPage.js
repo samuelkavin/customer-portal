@@ -67,7 +67,7 @@ const LoginPage = props => {
 								isEmail: true,
 							}}
 							validationErrors={{
-								isEmail: 'Please enter a email address',
+								isEmail: 'Please enter a valid email address',
 							}}
 							variant="outlined"
 							required

@@ -18,7 +18,7 @@ function App() {
 			<Routes>
 				<Route element={<ProtectedRoutes />}>
 					<Route path="/dashboard" element={<CustomerPage />} />
-					<Route path="products" element={<ProductPage />} />
+					<Route path="/products" element={<ProductPage />} />
 				</Route>
 				<Route exact path="/" element={<LoginPage />} />
 				<Route path="*" element={<PageNotFound />} />

@@ -33,11 +33,11 @@ const footers = [
 		values: [
 			{
 				name: 'Accounts',
-				path: './accounts',
+				path: '../accounts',
 			},
 			{
 				name: 'Pricing',
-				path: './pricing',
+				path: '../pricing',
 			},
 		],
 	},

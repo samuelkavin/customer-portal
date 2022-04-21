@@ -11,7 +11,7 @@ class AuthService {
 				})
 				.then(response => {
 					if (response.data.token) {
-						this.setSession(response.data.access_token);
+						this.setSession(response.data.token);
 						resolve(response.data.token);
 					} else {
 						reject(response.data.error);
