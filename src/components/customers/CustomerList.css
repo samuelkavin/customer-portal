@@ -1,4 +1,4 @@
-.Container {
+.container {
     padding-left: 4rem;
     padding-right: 4rem;
 }
@@ -8,39 +8,39 @@ h4 {
     text-align: left;
 }
 
-.Card {
+.card {
     display: flex;
     margin-bottom: 1rem;
     padding: 1rem;
     box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
 }
 
-.Avatar {
+.avatar {
     display: flex;
     align-items: center;
 }
 
-.Avatar img {
+.avatar img {
     width: 60%;
     border-radius: 50%;
 }
 
-.Details {
+.details {
     display: flex;
     flex-direction: column;
     align-items: flex-start;
     justify-content: center;
 }
 
-.Details p:first-of-type {
+.details p:first-of-type {
     font-size: 1.2rem;
     font-weight: 500;
 }
 
-.Details .Email {
+.details .email {
     color: #a1a1a1;
 }
 
-.Details p {
+.details p {
     margin: 0;
 }

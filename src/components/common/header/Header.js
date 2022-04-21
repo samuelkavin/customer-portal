@@ -8,11 +8,11 @@ import Toolbar from '@mui/material/Toolbar';
 import Typography from '@mui/material/Typography';
 import Container from '@mui/material/Container';
 import Button from '@mui/material/Button';
-import withRouter from '../../helpers/withRoute';
-import { isAuthenticated } from '../../redux/selectors/authSelector';
+import { isAuthenticated } from '../../../redux/selectors/authSelector';
 import { toast } from 'react-toastify';
-import { logoutUser } from '../../redux/reducers/authSlice';
+import { logoutUser } from '../../../redux/reducers/authSlice';
 import { useDispatch } from 'react-redux';
+import HeaderLink from './HeaderLink';
 
 const useStyles = makeStyles({
 	link: {
@@ -26,10 +26,10 @@ const Header = props => {
 	const dispatch = useDispatch();
 
 	function handleLogout() {
-		dispatch(logoutUser())
+		dispatch(logoutUser());
 		toast.success('Logout successfull');
 	}
-	
+
 	return (
 		<AppBar position="static" color="transparent">
 			<Container>
@@ -46,9 +46,14 @@ const Header = props => {
 					{props.isAuthenticated && (
 						<Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' } }}>
 							<Button color="inherit">
-								<Link className={classes.link} to="/dashboard">
+								<HeaderLink className={classes.link} to="/dashboard">
 									Customer
-								</Link>
+								</HeaderLink>
+							</Button>
+							<Button color="inherit">
+								<HeaderLink className={classes.link} to="/products">
+									Products
+								</HeaderLink>
 							</Button>
 						</Box>
 					)}
@@ -79,4 +84,4 @@ const mapStateToProps = state => {
 	};
 };
 
-export default withRouter(connect(mapStateToProps)(Header));
+export default connect(mapStateToProps)(Header);

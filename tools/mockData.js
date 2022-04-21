@@ -5,11 +5,11 @@ const footers = [
 		values: [
 			{
 				name: 'Customers',
-				path: './dashboard',
+				path: '../dashboard',
 			},
 			{
 				name: 'Products',
-				path: './products',
+				path: '../products',
 			},
 		],
 	},
