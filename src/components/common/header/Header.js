@@ -10,7 +10,7 @@ import Container from '@mui/material/Container';
 import Button from '@mui/material/Button';
 import { isAuthenticated } from '../../../redux/selectors/authSelector';
 import { toast } from 'react-toastify';
-import { logoutUser } from '../../../redux/reducers/authSlice';
+import { logoutUser } from '../../auth/authSlice';
 import { useDispatch } from 'react-redux';
 import HeaderLink from './HeaderLink';
 

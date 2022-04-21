@@ -10,7 +10,7 @@ import Card from '@mui/material/Card';
 import CardContent from '@mui/material/CardContent';
 import Typography from '@mui/material/Typography';
 import TextFieldFormsy from '../common/TextFieldFormsy';
-import { submitLogin } from '../../redux/reducers/authSlice';
+import { submitLogin } from '../../components/auth/authSlice';
 
 const LoginPage = props => {
 	const dispatch = useDispatch();
