@@ -1,9 +1,8 @@
 import axios from 'axios';
 
-class JwtService {
+class AuthService {
 	signInWithEmailAndPassword = (email, password) => {
 		const baseUrl = `https://reqres.in/api/login`;
-		console.log('eee', email);
 		return new Promise((resolve, reject) => {
 			axios
 				.post(baseUrl, {
@@ -11,7 +10,6 @@ class JwtService {
 					password,
 				})
 				.then(response => {
-					console.log('response', response);
 					if (response.data.token) {
 						this.setSession(response.data.access_token);
 						resolve(response.data.token);
@@ -37,5 +35,5 @@ class JwtService {
 	};
 }
 
-const instance = new JwtService();
+const instance = new AuthService();
 export default instance;

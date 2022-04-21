@@ -9,7 +9,6 @@ import CardContent from '@mui/material/CardContent';
 import Typography from '@mui/material/Typography';
 import TextFieldFormsy from '../common/TextFieldFormsy';
 import { submitLogin } from '../../redux/reducers/authSlice';
-import withRouter from '../../helpers/withRoute';
 import { isAuthenticated } from '../../redux/selectors/authSelector';
 
 const Login = props => {
@@ -38,9 +37,14 @@ const Login = props => {
 		setIsFormValid(true);
 	}
 
-	function handleSubmit(model) {
+	async function handleSubmit(model) {
 		console.log('props', props);
-		dispatch(submitLogin(model));
+		try {
+			await dispatch(submitLogin(model));
+			navigate('/dashboard');
+		  } catch(error) {
+			// handle error, log, etc...
+		  }
 	}
 
 	return (
@@ -105,4 +109,4 @@ const mapStateToProps = state => {
 	};
 };
 
-export default withRouter(connect(mapStateToProps)(Login));
+export default connect(mapStateToProps)(Login);

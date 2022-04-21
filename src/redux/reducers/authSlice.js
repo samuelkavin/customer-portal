@@ -1,10 +1,10 @@
 import { createSlice } from '@reduxjs/toolkit';
-import jwtService from '../../services/jwtService';
+import authService from '../../services/auth/authService';
 
 export const submitLogin =
 	({ email, password }) =>
 	async dispatch => {
-		return jwtService
+		return authService
 			.signInWithEmailAndPassword(email, password)
 			.then(user => {
 				return dispatch(loginSuccess());
@@ -15,7 +15,7 @@ export const submitLogin =
 	};
 
 export const logoutUser = () => async (dispatch, getState) => {
-	jwtService.logout();
+	authService.logout();
 	dispatch(logoutSuccess());
 };
 
