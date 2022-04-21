@@ -31,8 +31,8 @@ const Header = props => {
 	}
 
 	return (
-		<AppBar position="static" color="transparent">
-			<Container>
+		<AppBar position="fixed" color="transparent">
+			<Container style={{ background: '#fff' }}>
 				<Toolbar disableGutters style={{ display: 'flex', justifyContent: 'space-between' }}>
 					<Typography
 						variant="h6"
