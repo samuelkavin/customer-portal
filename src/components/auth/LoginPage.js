@@ -43,7 +43,7 @@ const LoginPage = props => {
 		try {
 			await dispatch(submitLogin(model));
 			navigate('/dashboard');
-			toast.success('Login successfull');
+			toast.success('Login successfully');
 		} catch (error) {
 			setSaving(false);
 			toast.error('Login failed, please try again');
