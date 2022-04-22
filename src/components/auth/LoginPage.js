@@ -46,7 +46,7 @@ const LoginPage = props => {
 			toast.success('Login successfull');
 		} catch (error) {
 			setSaving(false);
-			toast.success('Login failed, please try again');
+			toast.error('Login failed, please try again');
 		}
 	}
 
