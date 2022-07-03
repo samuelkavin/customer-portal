@@ -34,13 +34,7 @@ const Header = props => {
 		<AppBar position="static" color="transparent">
 			<Container>
 				<Toolbar disableGutters style={{ display: 'flex', justifyContent: 'space-between' }}>
-					<Typography
-						variant="h6"
-						noWrap
-						component="div"
-						style={{ fontWeight: '900' }}
-						sx={{ mr: 2 }}
-					>
+					<Typography variant="h6" noWrap component="div" style={{ fontWeight: '900' }} sx={{ mr: 2 }}>
 						Zurich
 					</Typography>
 					{props.isAuthenticated && (
@@ -53,6 +47,11 @@ const Header = props => {
 							<Button color="inherit">
 								<HeaderLink className={classes.link} to="/products">
 									Products
+								</HeaderLink>
+							</Button>
+							<Button color="inherit">
+								<HeaderLink className={classes.link} to="/transactions">
+									Transactions
 								</HeaderLink>
 							</Button>
 						</Box>

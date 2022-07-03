@@ -9,7 +9,9 @@ import Spinner from './components/common/spinner/Spinner';
 import 'react-toastify/dist/ReactToastify.css';
 import './App.css';
 
-const CustomerPage = React.lazy(() => import('./components/customers/CustomerPage'));
+const CustomerPageFunc = React.lazy(() => import('./components/customers/CustomerPageFunc'));
+// const CustomerPage = React.lazy(() => import('./components/customers/CustomerPage'));
+const TransactionPage = React.lazy(() => import('./components/transactions/TransactionPage'));
 const ProductPage = React.lazy(() => import('./components/products/ProductPage'));
 const PageNotFound = React.lazy(() => import('./pages/PageNotFound'));
 
@@ -20,8 +22,9 @@ function App() {
 			<Suspense fallback={<Spinner />}>
 				<Routes>
 					<Route element={<ProtectedRoutes />}>
-						<Route path="/dashboard" element={<CustomerPage />} />
+						<Route path="/dashboard" element={<CustomerPageFunc />} />
 						<Route path="/products" element={<ProductPage />} />
+						<Route path="/transactions" element={<TransactionPage />} />
 					</Route>
 					<Route exact path="/" element={<LoginPage />} />
 					<Route path="*" element={<PageNotFound />} />
